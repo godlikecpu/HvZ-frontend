@@ -1,11 +1,14 @@
 import React from "react";
-import z from "../../assets/zombieMission.png";
+import "./LandingStyles.css";
 
 const LandingPage = () => {
   return (
-    <>
-      <img src={z} style={{ width: 1000 }} alt="ZOMBIE" />
-    </>
+    <html>
+      <div class="landing-title">
+        <h1>Human VS Zombies</h1>
+        <h2>The best post apocalyptic game of tag</h2>
+      </div>
+    </html>
   );
 };
 

@@ -1,12 +1,12 @@
 import "./App.css";
 import Map from "./components/map/Map.jsx";
-import NavigationBar from "./components/shared/NavigationBar.jsx";
+import NavigationBar from "./components/shared/navbar/NavigationBar.jsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage.jsx";
 
 function App() {
   return (
-    <>
+    <html>
       <Router>
         <NavigationBar />
         <Switch>
@@ -18,7 +18,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </html>
   );
 }
 
