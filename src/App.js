@@ -1,10 +1,24 @@
 import "./App.css";
+import Map from "./components/map/Map.jsx";
+import NavigationBar from "./components/shared/NavigationBar.jsx";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LandingPage from "./components/pages/LandingPage.jsx";
 
 function App() {
   return (
-    <div>
-      <h1>Humans v Zombies</h1>
-    </div>
+    <>
+      <Router>
+        <NavigationBar />
+        <Switch>
+          <Route path="/" exact>
+            <LandingPage />
+          </Route>
+          <Route path="/game">
+            <Map />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
