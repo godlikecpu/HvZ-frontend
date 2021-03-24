@@ -11,7 +11,7 @@ const NavigationBar = () => {
           <h1>Humans vs Zombies</h1>
         </div>
       </Link>
-      <Link class="link" to="/game">
+      <Link class="link" to="/games">
         <div className="navbar-item">
           Games
       </div>
@@ -21,7 +21,7 @@ const NavigationBar = () => {
           Leaderboards
       </div>
       </Link>
-      <Link class="link" to="/game">
+      <Link class="link" to="/profile">
         <div className="navbar-item">
           Profile
       </div>
