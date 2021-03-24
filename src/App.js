@@ -14,10 +14,10 @@ function App() {
           <Route path="/" exact>
             <LandingPage />
           </Route>
-          <Route path="/game" exact>
+          <Route path="/game/:id" exact>
             <Map />
           </Route>
-          <Route path="/games" exact>
+          <Route path="/games">
             <GamesList />
           </Route>
         </Switch>
