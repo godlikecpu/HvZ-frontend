@@ -16,9 +16,9 @@ const LandingPage = () => {
       </div>
       <div>
         <div class="warning-headline">
-          <img src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png" />
+          <img src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png" alt="Warning triangle" />
           <h1>Emergency warning!</h1>
-          <img src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png" />
+          <img src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png" alt="Warning triangle" />
         </div>
         <p>Society as we know it has ended due to an outbreak of the disease called 'corpus animatum' or better known as 'CoNima Type-5'.<br />
           This outbreak has already wiped out a large number of campuses around the globe.

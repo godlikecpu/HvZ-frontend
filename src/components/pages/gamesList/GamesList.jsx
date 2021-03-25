@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Link from "react-router-dom"
 import SingleGame from "./SingleGameCard/SingleGame.jsx"
 import "./GamesListStyles.css"
 
@@ -37,11 +36,11 @@ const Games = () => {
     }
 
     return (
-        <html>
+        <>
             {games && games.map((oneGame, index) => (
                 <SingleGame key={index} game={oneGame} />
             ))}
-        </html>
+        </>
     )
 }
 

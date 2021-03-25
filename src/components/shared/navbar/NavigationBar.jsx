@@ -7,7 +7,7 @@ const NavigationBar = () => {
     <div className="navbar">
       <Link class="link" to="/">
         <div class="navbar-logo">
-          <img src="./assets/navbarImage/zombie.png" />
+          <img src="./assets/navbarImage/zombie.png" alt="Page logo"/>
           <h1>Humans vs Zombies</h1>
         </div>
       </Link>

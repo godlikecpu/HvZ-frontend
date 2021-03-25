@@ -7,7 +7,7 @@ const GameCard = (props) => {
     let gameLink = "/game/" + props.game.id
 
     return (
-        <html>
+        <>
             <Link class="link" to={gameLink}>
                 <div class="single-card">
 
@@ -19,7 +19,7 @@ const GameCard = (props) => {
 
                 </div>
             </Link>
-        </html>
+        </>
     )
 }
 
