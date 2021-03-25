@@ -1,7 +1,7 @@
 import L from 'leaflet';
 
-const deathIcon = new L.Icon({
-    iconUrl: require('../../../../public/assets/icons/DeadPlayer.png'),
+const saveHouseIcon = new L.Icon({
+    iconUrl: require('../../../../public/assets/icons/SaveHouse.png'),
     iconAnchor: null,
     popupAnchor: null,
     shadowUrl: null,
@@ -11,4 +11,4 @@ const deathIcon = new L.Icon({
     className: 'leaflet-div-icon'
 });
 
-export { deathIcon };
+export { saveHouseIcon };
