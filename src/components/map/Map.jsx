@@ -28,7 +28,6 @@ const Map = ({ game, kills }) => {
     averageLong = totalLong / points.length;
     return [averageLat, averageLong];
   };
-
   return Object.keys(game).length !== 0 ? (
     <MapContainer
       className="map"
