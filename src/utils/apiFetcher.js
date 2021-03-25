@@ -16,3 +16,24 @@ export const fetch = async (apiCall) => {
   });
   return data;
 };
+
+export const postKill = async (
+  latitude,
+  longitude,
+  gameId,
+  biteCode,
+  story
+) => {
+  const data = await axios.post(
+    "https://hvz-backend-v1.herokuapp.com/api/v1/game/2/kill",
+    {
+      timeOfDeath: new Date().toISOString(),
+      story,
+      latitude,
+      longitude,
+      game: { id: gameId },
+      killer: { id: 1 },
+      victim: { id: 3 },
+    }
+  );
+};

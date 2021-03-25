@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import deathIcon from "./customIcons/DeathIcon";
 import {
   MapContainer,
@@ -6,14 +6,66 @@ import {
   Popup,
   Marker,
   Rectangle,
+  useMapEvents,
 } from "react-leaflet";
+import { postKill } from "../../utils/apiFetcher";
 import "./map.css";
+import "./popup.css";
 
 const Map = ({ game, kills }) => {
   const mapBounds = [
     [game.northWestLatitude, game.northWestLongitude],
     [game.southEastLatitude, game.southEastLongitude],
   ];
+
+  const [currentPos, setCurrentPos] = useState(null);
+
+  const Markers = () => {
+    useMapEvents({
+      click(e) {
+        setCurrentPos([e.latlng.lat, e.latlng.lng]);
+      },
+    });
+
+    const sendKill = () => {
+      postKill(currentPos[0], currentPos[1], game.id, biteCode, story);
+    };
+
+    function useInput({ type /*...*/ }) {
+      const [value, setValue] = useState("");
+      const input = (
+        <input
+          style={{ height: 50, width: 200, fontSize: 22 }}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          type={type}
+        />
+      );
+      return [value, input];
+    }
+
+    const [biteCode, setBiteCode] = useInput({ type: "text" });
+    const [story, setStory] = useInput({ type: "text" });
+
+    return currentPos ? (
+      <Marker key={currentPos[0]} position={currentPos} draggable={true}>
+        <Popup className="request-popup">
+          <div style={{ fontSize: 22, width: 200, height: 50 }}>
+            <label>Bite Code</label>
+            {setBiteCode} <br />
+            <label>Story</label>
+            {setStory} <br />
+            <label>Latitude: {currentPos[0]}</label>
+            <br />
+            <label>Longitude: {currentPos[1]}</label>
+            <button style={{ fontSize: 20 }} onClick={sendKill}>
+              Confirm
+            </button>
+          </div>
+        </Popup>
+      </Marker>
+    ) : null;
+  };
 
   const findCenterPoint = (points) => {
     let totalLat = 0,
@@ -38,6 +90,7 @@ const Map = ({ game, kills }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <Markers></Markers>
       {kills.map((kill) => {
         return (
           <Marker
@@ -46,9 +99,11 @@ const Map = ({ game, kills }) => {
             icon={deathIcon}
           >
             <Popup>
-              <b>Dead player:</b> Hunor
-              <br />
-              <b>Story:</b> {kill.story}
+              <div style={{ fontSize: 25 }}>
+                <b>Dead player:</b> Hunor
+                <br />
+                <b>Story:</b> {kill.story}
+              </div>
             </Popup>
           </Marker>
         );

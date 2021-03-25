@@ -1,0 +1,5 @@
+.request-popup .leaflet-popup-content-wrapper {
+  border-radius: 0px;
+  height: 350px;
+  width: 250px;
+}
