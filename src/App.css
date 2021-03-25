@@ -8,3 +8,36 @@ html {
     background-image: url("https://i0.wp.com/inspirationhut.net/wp-content/uploads/2014/09/grey-paper-texture.jpg?resize=350%2C200&ssl=1");
     background-repeat: repeat;
 }
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .btn {
+    width: 200px;
+    height: 30px;
+    font-size: 20;
+    font-weight: bold;
+    background-color: #b0c4de;
+    border-radius: 12px;
+    border: 0;
+    margin: 5px;
+    caret-color: transparent;
+  }
+  
+  .btn:hover {
+    background-color: #a5a5a5;
+  }
+  
+  .border {
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+  }
