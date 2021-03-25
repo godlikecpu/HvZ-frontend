@@ -1,0 +1,10 @@
+.link {
+    text-decoration: none;
+}
+
+.single-card {
+    margin: 2rem;
+    background-color: lightgray;
+    border-style: solid;
+    border-color: black;
+}

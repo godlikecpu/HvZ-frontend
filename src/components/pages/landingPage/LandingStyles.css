@@ -1,0 +1,58 @@
+div {
+    
+}
+
+.landing-title {
+    height: 30rem;;
+    width: 100%;
+    text-align: center;
+    background-image: url("https://cdna.artstation.com/p/assets/images/images/014/524/622/large/erica-grenci-wasteland-city-03small.jpg?1544339989");
+    background-position: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.landing-title h1 {
+    font-size: 5rem;
+}
+
+.landing-title h2 {
+    font-size: 2rem;
+}
+
+.warning-headline {
+    width: 27rem;
+    margin: 0 auto;
+    display:flex;
+}
+
+.warning-headline img {
+    padding-top: .5rem;
+    margin: .5rem;
+    max-height: 3rem;
+}
+
+p {
+    margin-top: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+    -webkit-text-stroke: .5px black;
+}
+
+h1 {
+    text-align: center;
+}
+
+.games-button button {
+    height: 3rem;
+    width: 7rem;
+    border-radius: 10rem;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.658);
+    margin-top: 4rem;
+}
+
+.games-button button:hover {
+    cursor: pointer;
+}
