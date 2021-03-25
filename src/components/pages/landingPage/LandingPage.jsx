@@ -6,7 +6,7 @@ const LandingPage = () => {
   return (
     <html>
       <div class="landing-title">
-        <h1>Human VS Zombies</h1>
+        <h1>Humans VS Zombies</h1>
         <h2>The best post apocalyptic game of tag</h2>
         <Link class="games-button" to="/games">
           <button>
