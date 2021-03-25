@@ -32,7 +32,7 @@ div {
     max-height: 3rem;
 }
 
-p {
+.story {
     margin-top: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -40,7 +40,7 @@ p {
     -webkit-text-stroke: .5px black;
 }
 
-h1 {
+.centering {
     text-align: center;
 }
 
