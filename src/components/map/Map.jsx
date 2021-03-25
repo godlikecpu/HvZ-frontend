@@ -1,5 +1,5 @@
 import React from "react";
-import { deathIcon } from "./customIcons/DeathIcon";
+import deathIcon from "./customIcons/DeathIcon";
 
 import {
   MapContainer,
@@ -41,7 +41,11 @@ const Map = ({ game, kills }) => {
       />
       {kills.map((kill) => {
         return (
-          <Marker key={kill.id} position={[kill.latitude, kill.longitude]} icon={ deathIcon }>
+          <Marker
+            key={kill.id}
+            position={[kill.latitude, kill.longitude]}
+            icon={deathIcon}
+          >
             <Popup>
               <b>Dead player:</b> Hunor
               <br />

@@ -7,7 +7,10 @@ const NavigationBar = () => {
     <div className="navbar">
       <Link className="link" to="/">
         <div className="navbar-logo">
-          <img src="./assets/navbarImage/zombie.png" alt="Page logo" />
+          <img
+            src={process.env.PUBLIC_URL + "/assets/navbarImage/zombie.png"}
+            alt="Page logo"
+          />
           <h1>Humans vs Zombies</h1>
         </div>
       </Link>
