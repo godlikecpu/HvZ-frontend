@@ -26,33 +26,36 @@ const Map = ({ game, kills }) => {
     averageLong = totalLong / points.length;
     return [averageLat, averageLong];
   };
-
-  return Object.keys(game).length !== 0 ? (
-    <MapContainer
-      className="map"
-      center={findCenterPoint(mapBounds)}
-      zoom={16}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {kills.map((kill) => {
-        return (
-          <Marker key={kill.id} position={[kill.latitude, kill.longitude]}>
-            <Popup>
-              <b>Dead player:</b> Hunor
-              <br />
-              <b>Story:</b> {kill.story}
-            </Popup>
-          </Marker>
-        );
-      })}
-      <Rectangle bounds={mapBounds} pathOptions={{ color: "black" }} />
-    </MapContainer>
-  ) : (
-    <h2>Loading</h2>
+  return (
+    <>
+      {Object.keys(game).length !== 0 ? (
+        <MapContainer
+          className="map"
+          center={findCenterPoint(mapBounds)}
+          zoom={16}
+          scrollWheelZoom={false}
+        >
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {kills.map((kill) => {
+            return (
+              <Marker key={kill.id} position={[kill.latitude, kill.longitude]}>
+                <Popup>
+                  <b>Dead player:</b> Hunor
+                  <br />
+                  <b>Story:</b> {kill.story}
+                </Popup>
+              </Marker>
+            );
+          })}
+          <Rectangle bounds={mapBounds} pathOptions={{ color: "black" }} />
+        </MapContainer>
+      ) : (
+        <h2>Loading</h2>
+      )}
+    </>
   );
 };
 
