@@ -10,7 +10,6 @@ import {
 } from "react-leaflet";
 import { postKill } from "../../utils/apiFetcher";
 import "./map.css";
-import "./popup.css";
 
 const Map = ({ game, kills }) => {
   const mapBounds = [
@@ -94,6 +93,7 @@ const Map = ({ game, kills }) => {
       {kills.map((kill) => {
         return (
           <Marker
+            className="leaflet-div-icon"
             key={kill.id}
             position={[kill.latitude, kill.longitude]}
             icon={deathIcon}
