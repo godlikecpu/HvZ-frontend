@@ -21,11 +21,6 @@ const NavigationBar = () => {
           Games
       </div>
       </Link>
-      <Link class="link" to="/profile">
-        <div className="navbar-item">
-          Profile
-      </div>
-      </Link>
     </div >
   );
 };
