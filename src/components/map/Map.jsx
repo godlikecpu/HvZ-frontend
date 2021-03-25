@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  MapContainer as Map,
+  MapContainer,
   TileLayer,
   Popup,
   Marker,
@@ -8,11 +8,29 @@ import {
 } from "react-leaflet";
 import "./map.css";
 
-const LandingPage = () => {
-  return (
-    <Map
+const Map = ({ game, kills }) => {
+  const mapBounds = [
+    [game.northWestLatitude, game.northWestLongitude],
+    [game.southEastLatitude, game.southEastLongitude],
+  ];
+
+  const findCenterPoint = (points) => {
+    let totalLat = 0,
+      totalLong = 0;
+    points.forEach((point) => {
+      totalLat += point[0];
+      totalLong += point[1];
+    });
+    let averageLat, averageLong;
+    averageLat = totalLat / points.length;
+    averageLong = totalLong / points.length;
+    return [averageLat, averageLong];
+  };
+
+  return Object.keys(game).length !== 0 ? (
+    <MapContainer
       className="map"
-      center={[55.701847, 12.56734]}
+      center={findCenterPoint(mapBounds)}
       zoom={16}
       scrollWheelZoom={false}
     >
@@ -20,20 +38,22 @@ const LandingPage = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[55.701847, 12.56734]}>
-        <Popup>
-          Dead player: <b>Hunor</b>
-        </Popup>
-      </Marker>
-      <Rectangle
-        bounds={[
-          [55.696, 12.562],
-          [55.709, 12.576],
-        ]}
-        pathOptions={{ color: "black" }}
-      />
-    </Map>
+      {kills.map((kill) => {
+        return (
+          <Marker key={kill.id} position={[kill.latitude, kill.longitude]}>
+            <Popup>
+              <b>Dead player:</b> Hunor
+              <br />
+              <b>Story:</b> {kill.story}
+            </Popup>
+          </Marker>
+        );
+      })}
+      <Rectangle bounds={mapBounds} pathOptions={{ color: "black" }} />
+    </MapContainer>
+  ) : (
+    <h2>Loading</h2>
   );
 };
 
-export default LandingPage;
+export default Map;
