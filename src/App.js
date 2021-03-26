@@ -11,9 +11,9 @@ function App() {
   return (
     <>
       <Router>
+        <NavigationBar />
         <Switch>
           <Route path="/" exact component={LoginPage} />
-          <NavigationBar />
           <Route path="/home" exact component={LandingPage} />
           <Route path="/game/:id" exact component={GamePage} />
           <Route path="/official-rules" component={Rules}/>

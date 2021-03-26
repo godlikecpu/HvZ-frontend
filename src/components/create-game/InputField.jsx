@@ -13,7 +13,7 @@ const InputField = ({ placeholder, getState, id }) => {
 
   return (
     <>
-      <label>
+      <label style={{margin: 5}}>
         <input
           type="text"
           value={text}

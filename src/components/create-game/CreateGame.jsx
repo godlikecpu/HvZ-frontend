@@ -27,14 +27,18 @@ const CreateGame = () => {
 
     return (
       <>
-        <div>
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}>
         <InputField id="name" getState={getState} placeholder="Write name of the game" />
         <InputField id="northWestLatitude" getState={getState} placeholder="Give North-West Latitude" />
         <InputField id="northWestLongitude" getState={getState} placeholder="Give North-West Longitude" />
         <InputField id="southEastLatitude" getState={getState} placeholder="Give South-East Latitude" />
         <InputField id="southEastLongitude" getState={getState} placeholder="Give South-East Longitude" />
+        <button style={{fontSize: 25}} type="button" onClick={createGame}>Create a game</button>
         </div>
-        <button type="button" onClick={createGame}>Create a game</button>
       </>
     );
   };
