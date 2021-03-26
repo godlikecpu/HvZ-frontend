@@ -17,7 +17,9 @@ const InputField = ({ placeholder, setTextTo, submitButton }) => {
 
   const handleSubmit = (evt) => {
     localStorage.setItem("username", text);
-    history.push("/home");
+    history.push("/");
+    //Forcing page reload after re-route to get localStorage synced up with browser
+    window.location.reload();
   };
 
   return (
