@@ -40,7 +40,8 @@ const GamePage = (props) => {
 
   return (
     <>
-      <h2>{game.name}</h2> <Map game={game} kills={kills}></Map>
+      <h2>{game.name}</h2>
+      <Map game={game} kills={kills}></Map>
     </>
   );
 };

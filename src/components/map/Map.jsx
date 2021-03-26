@@ -16,18 +16,20 @@ const Map = ({ game, kills }) => {
     [game.northWestLatitude, game.northWestLongitude],
     [game.southEastLatitude, game.southEastLongitude],
   ];
-
+  const [popUpOpen, setPopUpOpen] = useState(false);
   const [currentPos, setCurrentPos] = useState(null);
 
   const Markers = () => {
     useMapEvents({
       click(e) {
         setCurrentPos([e.latlng.lat, e.latlng.lng]);
+        setPopUpOpen(true);
       },
     });
 
     const sendKill = () => {
       postKill(currentPos[0], currentPos[1], game.id, biteCode, story);
+      setPopUpOpen(false);
     };
 
     function useInput({ type /*...*/ }) {
@@ -46,7 +48,7 @@ const Map = ({ game, kills }) => {
     const [biteCode, setBiteCode] = useInput({ type: "text" });
     const [story, setStory] = useInput({ type: "text" });
 
-    return currentPos ? (
+    return currentPos && popUpOpen ? (
       <Marker key={currentPos[0]} position={currentPos} draggable={true}>
         <Popup className="request-popup">
           <div style={{ fontSize: 22, width: 200, height: 50 }}>
@@ -108,7 +110,11 @@ const Map = ({ game, kills }) => {
           </Marker>
         );
       })}
-      <Rectangle bounds={mapBounds} pathOptions={{ color: "black" }} />
+      <Rectangle
+        bounds={mapBounds}
+        fillOpacity={0}
+        pathOptions={{ color: "red" }}
+      />
     </MapContainer>
   ) : (
     <h2>Loading</h2>
