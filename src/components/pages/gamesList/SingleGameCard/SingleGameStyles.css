@@ -2,9 +2,22 @@
     text-decoration: none;
 }
 
+.link button {
+    margin: 1rem;
+    text-align: center;
+}
+
 .single-card {
     margin: 2rem;
     background-color: lightgray;
     border-style: solid;
     border-color: black;
+}
+
+.inner-div {
+    text-align: center;
+}
+
+.invalid-btn {
+    opacity: .5;
 }
