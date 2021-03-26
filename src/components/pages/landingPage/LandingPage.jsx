@@ -13,7 +13,6 @@ const LandingPage = () => {
         </Link>
       </div>
       <div>
-
         <div className="warning-headline">
           <img
             src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png"
@@ -25,7 +24,7 @@ const LandingPage = () => {
             alt="Warning triangle"
           />
         </div>
-        <p class="story>
+        <p class="story">
           Society as we know it has ended due to an outbreak of the disease
           called 'corpus animatum' or better known as 'CoNima Type-5'.
           <br />
