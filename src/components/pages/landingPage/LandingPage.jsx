@@ -5,14 +5,15 @@ import "./LandingStyles.css";
 const LandingPage = () => {
   return (
     <>
-      <div className="landing-title">
-        <h1>Humans VS Zombies</h1>
+      <div class="landing-title">
+        <h1 class="centering">Humans VS Zombies</h1>
         <h2>The best post apocalyptic game of tag</h2>
         <Link className="games-button" to="/games">
           <button>Find game</button>
         </Link>
       </div>
       <div>
+
         <div className="warning-headline">
           <img
             src="https://images.emojiterra.com/google/android-nougat/512px/26a0.png"
@@ -24,7 +25,7 @@ const LandingPage = () => {
             alt="Warning triangle"
           />
         </div>
-        <p>
+        <p class="story>
           Society as we know it has ended due to an outbreak of the disease
           called 'corpus animatum' or better known as 'CoNima Type-5'.
           <br />
