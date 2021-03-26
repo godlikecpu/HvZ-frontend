@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleGame from "./SingleGameCard/SingleGame.jsx";
 import "./GamesListStyles.css";
+import CreateGame from "../../create-game/CreateGame";
 
 const Games = () => {
   const [isLoading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ const Games = () => {
 
   return (
     <>
+    <CreateGame />
       {games &&
         games.map((oneGame, index) => (
           <SingleGame key={index} game={oneGame} />

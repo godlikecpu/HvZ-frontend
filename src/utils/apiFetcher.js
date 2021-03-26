@@ -34,3 +34,21 @@ export const postKill = async (
     victim: { id: 3 },
   });
 };
+
+export const postGame = async (
+  name,
+  northWestLatitude,
+  northWestLongitude,
+  southEastLatitude,
+  southEastLongitude,
+  gameState
+) => {
+  await axios.post("https://hvz-backend-v1.herokuapp.com/api/v1/game", {
+    name, 
+    northWestLatitude,
+    northWestLongitude,
+    southEastLatitude,
+    southEastLongitude,
+    gameState
+  });
+};
