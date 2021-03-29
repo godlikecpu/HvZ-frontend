@@ -32,8 +32,8 @@ const GameStatistics = (props) =>{
             <div className="row">
                 <div className="column">
                     <h3>Game state: {stats.gameState}</h3>
-                    <h3>Location: {stats.northWestLatitude}, {stats.northWestLongitude}</h3>
-                    <h3>Location: {stats.southEastLatitude}, {stats.southEastLongitude}</h3>
+                    <h3>North-West: {stats.northWestLatitude} °, {stats.northWestLongitude}° </h3>
+                    <h3>South-East: {stats.southEastLatitude} °, {stats.southEastLongitude}° </h3>
                 </div>
                 <div className="column">
                     <PlayerStatistic gameId = {gameId}/>
