@@ -25,7 +25,7 @@ export default function Login() {
         urlencoded.append("grant_type", "password");
 
         const requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: myHeaders,
             body: urlencoded,
             redirect: 'follow'
