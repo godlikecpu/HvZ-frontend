@@ -5,8 +5,8 @@ export default function Login() {
 
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    /*const [KEYCLOAK_URL, setKeycloakURL] = useState("https://hvz-keycloak-experis.herokuapp.com")
-    const [KEYCLOAK_REALM, setKeycloakRealm] = useState("master")*/
+    const [KEYCLOAK_URL, /*setKeycloakURL*/] = useState("https://hvz-keycloak-experis.herokuapp.com")
+    const [KEYCLOAK_REALM, /*setKeycloakRealm*/] = useState("master")
     const [error, setError] = useState("")
     const [/*loggedIn,*/ setLoggedIn] = useState(false)
     let history = useHistory();
