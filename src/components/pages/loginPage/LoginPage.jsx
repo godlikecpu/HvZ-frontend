@@ -48,7 +48,10 @@ export default function Login() {
                 }
 
             })
-            .catch(error => setError("Server"));
+            .catch(err => {
+                setError("Server")
+                console.log(err)
+            });
     }
 
     return (
