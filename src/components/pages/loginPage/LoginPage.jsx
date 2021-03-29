@@ -5,10 +5,10 @@ export default function Login() {
 
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [KEYCLOAK_URL, setKeycloakURL] = useState("https://hvz-keycloak-experis.herokuapp.com")
-    const [KEYCLOAK_REALM, setKeycloakRealm] = useState("master")
+    /*const [KEYCLOAK_URL, setKeycloakURL] = useState("https://hvz-keycloak-experis.herokuapp.com")
+    const [KEYCLOAK_REALM, setKeycloakRealm] = useState("master")*/
     const [error, setError] = useState("")
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [/*loggedIn,*/ setLoggedIn] = useState(false)
     let history = useHistory();
 
     // contains the fetch request to login a user
@@ -35,7 +35,7 @@ export default function Login() {
         fetch(`${KEYCLOAK_URL}/auth/realms/${KEYCLOAK_REALM}/protocol/openid-connect/token`, requestOptions)
             .then(response => response.json())
             .then(result => {
-                if (result.error != "invalid_grant") {
+                if (result.error !== "invalid_grant") {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
                     setLoggedIn(true)
