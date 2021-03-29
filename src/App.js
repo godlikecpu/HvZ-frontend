@@ -6,6 +6,7 @@ import LandingPage from "./components/pages/landingPage/LandingPage.jsx";
 import GamesList from "./components/pages/gamesList/GamesList.jsx";
 import Rules from "./components/pages/officialRules/Rules.jsx";
 import LoginPage from "./components/pages/loginPage/LoginPage.jsx";
+import GameStatistics from "./components/game-statistics/GameStatistics";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/game/:id" exact component={GamePage} />
           <Route path="/official-rules" component={Rules}/>
           <Route path="/games" component={GamesList} />
+          {/* <Route path="/game/:id/game-statistics" exact component={GameStatistics} /> */}
         </Switch>
       </Router>
     </>

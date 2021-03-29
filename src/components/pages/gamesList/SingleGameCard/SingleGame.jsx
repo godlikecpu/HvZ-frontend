@@ -7,7 +7,6 @@ const GameCard = (props) => {
 
   return (
     <>
-
       <div className="single-card">
         <div className="inner-div">
           <h1>{props.game.name}</h1>
