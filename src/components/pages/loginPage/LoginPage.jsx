@@ -43,7 +43,7 @@ export default function Login() {
                     console.log(loggedIn)
                     // redirect to 'landing page' page
                     history.push('/games')
-                    window.location.reload();
+                    //window.location.reload();
                 }
                 else if (result.error === "invalid_grant") {
                     setError("invalid_grant")
