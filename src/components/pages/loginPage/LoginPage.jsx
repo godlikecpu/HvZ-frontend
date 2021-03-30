@@ -50,10 +50,10 @@ export default function Login() {
 
             })
             .catch(error)
-                {
-                    setError("Server")
-                    console.log(error)
-                }
+        {
+            setError("Server")
+            console.log(error)
+        }
     }
 
     return (
