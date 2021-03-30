@@ -8,7 +8,7 @@ export default function Login() {
     const [KEYCLOAK_URL /*, setKeycloakURL*/] = useState("https://hvz-keycloak-experis.herokuapp.com")
     const [KEYCLOAK_REALM /*, setKeycloakRealm*/] = useState("master")
     const [error, setError] = useState("")
-    const [/*loggedIn,*/ setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false)
     let history = useHistory();
 
     // contains the fetch request to login a user
@@ -39,6 +39,7 @@ export default function Login() {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
                     setLoggedIn(true)
+                    console.log(loggedIn)
                     // redirect to 'landing page' page
                     history.push('/games')
                     //window.location.reload();
@@ -48,7 +49,11 @@ export default function Login() {
                 }
 
             })
-            .catch(error => setError("Server"));
+            .catch(error)
+                {
+                    setError("Server")
+                    console.log(error)
+                }
     }
 
     return (
