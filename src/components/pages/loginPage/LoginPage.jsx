@@ -38,6 +38,7 @@ export default function Login() {
                 if (result.error !== "invalid_grant") {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
+                    console.log(result)
                     setLoggedIn(true)
                     console.log(loggedIn)
                     // redirect to 'landing page' page
