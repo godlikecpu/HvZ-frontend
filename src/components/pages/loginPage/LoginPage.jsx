@@ -38,9 +38,7 @@ export default function Login() {
                 if (result.error !== "invalid_grant") {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
-                    console.log(result)
                     setLoggedIn(true)
-                    console.log(loggedIn)
                     // redirect to 'landing page' page
                     history.push('/games')
                     //window.location.reload();
@@ -50,10 +48,7 @@ export default function Login() {
                 }
 
             })
-            .catch(err => {
-                setError("Server")
-                console.log(err)
-            });
+            .catch(error => setError("Server"));
     }
 
     return (
