@@ -8,7 +8,7 @@ export default function Login() {
     const [KEYCLOAK_URL, /*setKeycloakURL*/] = useState("https://hvz-keycloak-experis.herokuapp.com")
     const [KEYCLOAK_REALM, /*setKeycloakRealm*/] = useState("master")
     const [error, setError] = useState("")
-    const [/*loggedIn,*/ setLoggedIn] = useState(false)
+    const [loggedIn setLoggedIn] = useState(false)
     let history = useHistory();
 
     // contains the fetch request to login a user
@@ -38,9 +38,11 @@ export default function Login() {
                 if (result.error !== "invalid_grant") {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
+                    console.log(result.access_token)
                     setLoggedIn(true)
+                    console.log(loggedIn)
                     // redirect to 'landing page' page
-                    history.push('/')
+                    history.push('/games')
                     window.location.reload();
                 }
                 else if (result.error === "invalid_grant") {
