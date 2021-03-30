@@ -22,7 +22,8 @@ export const postKill = async (
   longitude,
   gameId,
   biteCode,
-  story
+  story,
+  killerId
 ) => {
   await axios.post("https://hvz-backend-v1.herokuapp.com/api/v1/game/2/kill", {
     timeOfDeath: new Date().toISOString(),
@@ -30,8 +31,8 @@ export const postKill = async (
     latitude,
     longitude,
     game: { id: gameId },
-    killer: { id: 1 },
-    victim: { id: 3 },
+    killer: { id: killerId },
+    biteCode,
   });
 };
 
@@ -44,11 +45,11 @@ export const postGame = async (
   gameState
 ) => {
   await axios.post("https://hvz-backend-v1.herokuapp.com/api/v1/game", {
-    name, 
+    name,
     northWestLatitude,
     northWestLongitude,
     southEastLatitude,
     southEastLongitude,
-    gameState
+    gameState,
   });
 };
