@@ -1,30 +1,19 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 // Modular input field component
 
-const InputField = ({ placeholder, setTextTo, submitButton }) => {
+const InputField = ({ placeholder, getState, id }) => {
   const [text, setText] = useState("");
-  const history = useHistory();
 
   const handleChange = (evt) => {
     evt.preventDefault();
     setText(evt.target.value);
-    if (setTextTo) {
-      setTextTo(evt.target.value);
-    }
-  };
-
-  const handleSubmit = (evt) => {
-    localStorage.setItem("username", text);
-    history.push("/");
-    //Forcing page reload after re-route to get localStorage synced up with browser
-    window.location.reload();
+    getState(evt.target.value, id);
   };
 
   return (
     <>
-      <label>
+      <label style={{margin: 5}}>
         <input
           type="text"
           value={text}
@@ -40,11 +29,6 @@ const InputField = ({ placeholder, setTextTo, submitButton }) => {
           className="border"
         />
       </label>
-      {submitButton && (
-        <button type="button" className="btn" onClick={handleSubmit}>
-          Login
-        </button>
-      )}
     </>
   );
 };
