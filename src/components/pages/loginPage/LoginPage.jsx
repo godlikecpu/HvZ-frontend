@@ -6,7 +6,7 @@ export default function Login() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [KEYCLOAK_URL /*, setKeycloakURL*/] = useState("https://hvz-keycloak-experis.herokuapp.com")
-    const [KEYCLOAK_REALM /*, setKeycloakRealm*/] = useState("master")
+    const [KEYCLOAK_REALM /*, setKeycloakRealm*/] = useState("users")
     const [error, setError] = useState("")
     const [loggedIn, setLoggedIn] = useState(false)
     let history = useHistory();
@@ -38,6 +38,7 @@ export default function Login() {
                 if (result.error !== "invalid_grant") {
                     // store access token in localstorage
                     localStorage.setItem("token", result.access_token)
+                    console.log(result)
                     setLoggedIn(true)
                     console.log(loggedIn)
                     console.log(parseJwt(result.access_token))
