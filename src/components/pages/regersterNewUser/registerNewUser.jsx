@@ -63,9 +63,9 @@ const RegisterNewUser = () => {
 
     function newUser(password,userName,email,fname,lname,accessToken){
 
-            const header = `{"Content-Type": "application/json", "Authorization": "Bearer" ${accessToken}}`
+            const header = `{Content-Type: application/json, Authorization: Bearer ${accessToken}}`
 
-            const rawBody = `{"firstName":${fname},"lastName":${lname},"email":${email},"enabled":"true","username":${userName},"credentials":[{"type": "password", "value": ${password},"temporary":false}]}`
+            const rawBody = `{firstName:${fname},lastName:${lname},email:${email},enabled:true,username:${userName},credentials:[{type: password, value: ${password},temporary:false}]}`
 
             const requestOptions = {
                 method: 'POST',
