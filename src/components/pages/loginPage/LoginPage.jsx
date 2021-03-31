@@ -41,7 +41,7 @@ export default function Login() {
                     console.log(result)
                     setLoggedIn(true)
                     console.log(loggedIn)
-                    console.log(parseJwt(result.access_token))
+                    console.log(parseJwt(result.access_token).realm_access.roles)
                     // redirect to 'landing page' page
                     history.push('/games')
                     //window.location.reload();
