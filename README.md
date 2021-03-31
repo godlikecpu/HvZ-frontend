@@ -1,5 +1,6 @@
-# HvZ (Human Vs Zombies)
 <img src="https://github.com/godlikecpu/HvZ-frontend/blob/main/docs/screenshots/hvz.png" alt="logo" width="1000"/>
+
+# HvZ (Human Vs Zombies)
 
 This repository contains the React application for the web based Java Spring game application called HvZ.
 The project is the final case for Experis Academy's accelerated Fullstack Java graduate program. 
