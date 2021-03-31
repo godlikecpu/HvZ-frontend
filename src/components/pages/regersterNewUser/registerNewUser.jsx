@@ -8,16 +8,31 @@ const RegisterNewUser = () => {
     const [error, setError] = useState("");
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+
 
 
     function sendRegistration(event) {
             event.preventDefault();
             let password1 = document.getElementById("password").value;
             let password2 = document.getElementById("password-confirm").value;
+            let userName = document.getElementById("username").value;
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let email = document.getElementById("email").value;
 
             if (password1 !== password2) {
                 setPasswordMatch(false);
             } else if (password1 === password2) {
+                setPassword(password2)
+                setUserName(userName)
+                setUserEmail(email)
+                setFirstName(fname)
+                setLastName(lname)
+
+
                 console.log("registration hasn't been sent as API calls are not implemented here yet...")
             }
     }
@@ -64,7 +79,7 @@ const RegisterNewUser = () => {
             myHeaders.append("Content-Type", "application/json");
             myHeaders.append("Authorization", "Bearer");
 
-            const rawBody = `{"firstName":${firstName},"lastName":${lastName},"email":${email},"enabled":"true","username":${username},"credentials":[{"type": "password", "value": ${password},"temporary":false}]}`
+            const rawBody = `{"firstName":${firstName},"lastName":${lastName},"email":${userEmail},"enabled":"true","username":${username},"credentials":[{"type": "password", "value": ${password},"temporary":false}]}`
 
             const requestOptions = {
                 method: 'POST',
@@ -118,7 +133,7 @@ const RegisterNewUser = () => {
                         <input id="password" type="password" placeholder="Password" required />
                     </div>
                     <div>
-                        <label>Comfirm Password:</label>
+                        <label>Confirm Password:</label>
                         <input id="password-confirm" type="password" placeholder="Confirm Password" required />
                     </div>
 
