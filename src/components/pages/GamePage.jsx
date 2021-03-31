@@ -16,26 +16,7 @@ const GamePage = (props) => {
           setKills((kills) => [...kills, kill]);
         });
       });
-    } else {
-      fetchGame(gameId).then((gameData) => {
-        setGame(gameData);
-        gameData.kills.map(async (apiCall) => {
-          await fetch(apiCall).then((kill) => {
-            setKills((kills) => [...kills, kill]);
-          });
-        });
-      });
-    }
-    // (async () => {
-    //   setGame(await fetchGame(gameId));
-    //   setKills(
-    //     game.kills.map(async (apiCall) => {
-    //       return fetch(apiCall);
-    //     })
-    //   );
-    // })();
-
-    // eslint-disable-next-line
+    }); 
   }, []);
 
   return (
