@@ -5,6 +5,7 @@ import LandingPage from "./components/pages/landingPage/LandingPage.jsx";
 import GamesList from "./components/pages/gamesList/GamesList.jsx";
 import Rules from "./components/pages/officialRules/Rules.jsx";
 import LoginPage from "./components/pages/loginPage/LoginPage.jsx";
+import RegisterNewUser from "./components/pages/regersterNewUser/registerNewUser.jsx";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/official-rules" component={Rules} />
           <Route path="/games" component={GamesList} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterNewUser} />
         </Switch>
       </Router>
     </>
