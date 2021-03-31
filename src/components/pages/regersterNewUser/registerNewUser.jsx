@@ -4,14 +4,8 @@ import "./registerNewUserStyles.css";
 const RegisterNewUser = () => {
 
     const [passwordMatch, setPasswordMatch] = useState(true)
-    const [accessToken, setAccessToken] = useState("");
+    //const [accessToken, setAccessToken] = useState("");
     const [error, setError] = useState("");
-    const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-
 
 
     function sendRegistration(event) {
@@ -26,17 +20,12 @@ const RegisterNewUser = () => {
             if (password1 !== password2) {
                 setPasswordMatch(false);
             } else if (password1 === password2) {
-                setPassword(password2)
-                setUserName(userName)
-                setUserEmail(email)
-                setFirstName(fname)
-                setLastName(lname)
-
+                obtainAccess(password2,userName,email,fname,lname)
 
                 console.log("registration hasn't been sent as API calls are not implemented here yet...")
             }
     }
-    function obtainAccess(){
+    function obtainAccess(password,userName,email,fname,lname){
         const KEYCLOAK_URL = "https://hvz-keycloak-experis.herokuapp.com"
         const KEYCLOAK_REALM = "master"
         const myHeaders = new Headers();
@@ -58,11 +47,12 @@ const RegisterNewUser = () => {
             .then(response => response.json())
             .then(result => {
                 if (result.error !== "invalid_grant") {
-                    setAccessToken(result.access_token)
-                    newUser()
+                    //setAccessToken(result.access_token)
+                    newUser(password,userName,email,fname,lname,result.access_token)
                 }
                 else if (result.error === "invalid_grant") {
                     setError("invalid_grant")
+                    console.log(error)
                 }
 
             })
@@ -73,17 +63,15 @@ const RegisterNewUser = () => {
 
     }
 
-    function newUser(){
+    function newUser(password,userName,email,fname,lname,accessToken){
 
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-            myHeaders.append("Authorization", "Bearer");
+            const header = `{"Content-Type": "application/json", "Authorization": "Bearer" ${accessToken}}`
 
-            const rawBody = `{"firstName":${firstName},"lastName":${lastName},"email":${userEmail},"enabled":"true","username":${username},"credentials":[{"type": "password", "value": ${password},"temporary":false}]}`
+            const rawBody = `{"firstName":${fname},"lastName":${lname},"email":${email},"enabled":"true","username":${userName},"credentials":[{"type": "password", "value": ${password},"temporary":false}]}`
 
             const requestOptions = {
                 method: 'POST',
-                headers: myHeaders,
+                headers: header,
                 body: rawBody,
                 redirect: 'follow'
             };
