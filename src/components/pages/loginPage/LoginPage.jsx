@@ -40,6 +40,7 @@ export default function Login() {
                     localStorage.setItem("token", result.access_token)
                     setLoggedIn(true)
                     console.log(loggedIn)
+                    console.log(parseJwt(result.access_token))
                     // redirect to 'landing page' page
                     history.push('/games')
                     //window.location.reload();
@@ -53,6 +54,15 @@ export default function Login() {
                 setError("Server")
                 console.log(error)
             })
+    }
+    function parseJwt (token) {
+        let base64Url = token.split('.')[1]
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        }).join(''))
+
+        return JSON.parse(jsonPayload);
     }
 
     return (
