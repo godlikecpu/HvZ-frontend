@@ -97,36 +97,36 @@ const RegisterNewUser = () => {
 
     return (
         <>
-            <h1 className="reg-title">Create new User</h1>
+            <h1 className="reg-centering">Create new User</h1>
             <div className="reg-centering">
                 <form className="reg-form" onSubmit={sendRegistration}>
-                    <div>
+                    <div className="gridding">
                         <label>Username:</label>
                         <input id="username" type="text" placeholder="Username" required />
                     </div>
-                    <div>
+                    <div className="gridding">
                         <label>First Name:</label>
                         <input id="fname" type="text" placeholder="First Name" required />
                     </div>
-                    <div>
+                    <div className="gridding">
                         <label>Last Name:</label>
                         <input id="lname" type="text" placeholder="Last Name" required />
                     </div>
-                    <div>
+                    <div className="gridding">
                         <label>Email:</label>
                         <input id="email" type="email" placeholder="Email" required />
                     </div>
-                    <div>
+                    <div className="gridding">
                         <label>Password:</label>
                         <input id="password" type="password" placeholder="Password" required />
                     </div>
-                    <div>
-                        <label>Confirm Password:</label>
+                    <div className="gridding">
+                        <label>Comfirm Password:</label>
                         <input id="password-confirm" type="password" placeholder="Confirm Password" required />
                     </div>
 
                     {passwordMatch ? <div></div> : <h4 className="warning" >Passwords does not match!</h4>}
-                    <div className="reg-centering">
+                    <div className="reg-center-btn">
                         <input className="reg-submit" type="submit" value="Create new User" />
                     </div>
                 </form>
