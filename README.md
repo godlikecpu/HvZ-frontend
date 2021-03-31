@@ -20,6 +20,7 @@ More about the rules of the game is available at the official website [Humans vs
  
 <b>Important Library:</b>
   - React Leaflet - version 3.1.0
+  - Socket.io - version 3.1.0
 
 ## Deployment
 The React application is deployed to [Vercel](https://vercel.com).
