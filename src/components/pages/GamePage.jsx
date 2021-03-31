@@ -26,8 +26,10 @@ const GamePage = (props) => {
       <h2>{game.name}</h2>
       <div style={{ display: "flex" }}>
         <Map game={game} kills={kills}></Map>
-        <Chat></Chat>
-        <GameStatistics gameId={gameId}></GameStatistics>
+        <div>
+          <Chat></Chat>
+          <GameStatistics gameId={gameId}></GameStatistics>
+        </div>
       </div>
     </>
   );
