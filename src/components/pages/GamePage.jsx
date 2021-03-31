@@ -1,6 +1,7 @@
 import Map from "../map/Map";
 import { fetchGame, fetch } from "../../utils/apiFetcher";
 import { useState, useEffect } from "react";
+import Chat from "../chat/Chat";
 
 const GamePage = (props) => {
   const [game, setGame] = useState({});
@@ -23,7 +24,10 @@ const GamePage = (props) => {
   return (
     <>
       <h2>{game.name}</h2>
-      <Map game={game} kills={kills}></Map>
+      <div style={{ display: "flex" }}>
+        <Map game={game} kills={kills}></Map>
+        <Chat></Chat>
+      </div>
     </>
   );
 };
