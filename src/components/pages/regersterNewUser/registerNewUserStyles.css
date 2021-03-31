@@ -5,16 +5,12 @@
     font-weight: lighter;
 }
 
-.reg-title {
-    text-align: center;
-}
-
 .reg-form {
     display: inline-grid;
     grid-template-columns: repeat(1, 1fr);
 }
 
-.reg-form div {
+.gridding {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin: .5rem;
@@ -34,8 +30,9 @@
     height: 3rem;
     width: 10rem;
     border-radius: 10rem;
-    background-color: rgba(0, 0, 0, 0.658);
+    background-color: rgba(2, 2, 2, 0.658);
     color: red;
+    -webkit-text-stroke: 1px red;
 }
 
 .reg-submit:focus {
@@ -44,4 +41,9 @@
 
 .reg-submit:hover {
     cursor: pointer;
+}
+
+.reg-center-btn {
+    text-align: center;
+    margin-top: 1rem;
 }
