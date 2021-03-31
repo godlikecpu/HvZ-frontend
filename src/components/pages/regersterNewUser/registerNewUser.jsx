@@ -47,8 +47,8 @@ const RegisterNewUser = () => {
             .then(result => {
                 if (result.error !== "invalid_grant") {
                     //setAccessToken(result.access_token)
-                    console.log(password,userName,email,fname,lname)
-                    //newUser(password,userName,email,fname,lname,result.access_token)
+
+                    newUser(password,userName,email,fname,lname,result.access_token)
                 }
                 else if (result.error === "invalid_grant") {
                     setError("invalid_grant")
@@ -63,15 +63,18 @@ const RegisterNewUser = () => {
 
     }
 
-    /*function newUser(password,userName,email,fname,lname,accessToken){
+    function newUser(password,userName,email,fname,lname,accessToken){
 
-            const header = `{Content-Type: application/json, Authorization: Bearer ${accessToken}}`
+
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json")
+            myHeaders.append("Authorization", `Bearer ${accessToken}`)
 
             const rawBody = `{firstName:${fname},lastName:${lname},email:${email},enabled:true,username:${userName},credentials:[{type: password, value: ${password},temporary:false}]}`
 
             const requestOptions = {
                 method: 'POST',
-                headers: header,
+                headers: myHeaders,
                 body: rawBody,
                 redirect: 'follow'
             };
@@ -93,7 +96,7 @@ const RegisterNewUser = () => {
                     setError("Server")
                     console.log(error)
                 })
-    }*/
+    }
 
     return (
         <>
