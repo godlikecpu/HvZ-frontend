@@ -84,7 +84,7 @@ const RegisterNewUser = () => {
                 .then(response => response.json())
                 .then(result => {
                     if (result.error !== "invalid_grant") {
-                        console.log("It worked!")
+                        console.log(result)
                     }
                     else if (result.error === "invalid_grant") {
                         setError("invalid_grant")
