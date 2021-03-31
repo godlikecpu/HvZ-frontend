@@ -40,13 +40,15 @@ const RegisterNewUser = () => {
             body: urlencoded,
             redirect: 'follow'
         };
+        console.log(requestOptions)
 
         fetch(`https://hvz-keycloak-experis.herokuapp.com/auth/realms/master/protocol/openid-connect/token`, requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.error !== "invalid_grant") {
                     //setAccessToken(result.access_token)
-                    newUser(password,userName,email,fname,lname,result.access_token)
+                    console.log(password,userName,email,fname,lname)
+                    //newUser(password,userName,email,fname,lname,result.access_token)
                 }
                 else if (result.error === "invalid_grant") {
                     setError("invalid_grant")
@@ -61,7 +63,7 @@ const RegisterNewUser = () => {
 
     }
 
-    function newUser(password,userName,email,fname,lname,accessToken){
+    /*function newUser(password,userName,email,fname,lname,accessToken){
 
             const header = `{Content-Type: application/json, Authorization: Bearer ${accessToken}}`
 
@@ -91,7 +93,7 @@ const RegisterNewUser = () => {
                     setError("Server")
                     console.log(error)
                 })
-    }
+    }*/
 
     return (
         <>
