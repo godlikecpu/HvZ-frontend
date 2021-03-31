@@ -84,7 +84,7 @@ const Map = ({ game, kills }) => {
     <MapContainer
       className="map"
       center={findCenterPoint(mapBounds)}
-      zoom={16}
+      zoom={15}
       scrollWheelZoom={false}
     >
       <TileLayer
