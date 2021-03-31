@@ -16,6 +16,7 @@ const PlayerStatistic = (props) => {
             setLoading(false);
         }
         fetchPlayer();
+        // eslint-disable-next-line
     }, []); 
 
     if (isLoading) {
