@@ -44,7 +44,7 @@ export default function Login() {
                     console.log(parseJwt(result.access_token).realm_access.roles)
                     // redirect to 'landing page' page
                     history.push('/games')
-                    //window.location.reload();
+                    window.location.reload()
                 }
                 else if (result.error === "invalid_grant") {
                     setError("invalid_grant")
@@ -56,10 +56,10 @@ export default function Login() {
                 console.log(error)
             })
     }
-    function parseJwt (token) {
+    function parseJwt(token) {
         let base64Url = token.split('.')[1]
         let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
         }).join(''))
 
@@ -85,7 +85,7 @@ export default function Login() {
                 {error === "invalid_grant" && <p>Invalid Credentials 😅</p>}
             </div>
 
-            <button type="button" onClick={loginAttempt} className="btn btn-primary btn-block">Log in</button>
+            <button type="button" onClick={loginAttempt} >Log in</button>
             <p className="forgot-password text-right">
                 Need to regsiter? <a href="/register"> click here</a>
             </p>
