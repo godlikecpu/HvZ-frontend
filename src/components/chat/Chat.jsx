@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 
 const Chat = () => {
-  const [socket] = useState(io("ws://hvz-chat-server.herokuapp.com:80"));
+  const [socket] = useState(io("//hvz-chat-server.herokuapp.com:80"));
 
   const messagesEndRef = useRef(null);
 
