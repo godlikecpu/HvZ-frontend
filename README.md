@@ -24,7 +24,7 @@ More about the rules of the game is available at the official website [Humans vs
 
 ## Deployment
 The React application is deployed to [Vercel](https://vercel.com).
-Link to the application on Vercel is [here](https://hvz-frontend-dkjv7crmi-dxcr.vercel.app).
+Link to the application on Vercel is [here](https://hvz-frontend-seven.vercel.app).
 
 ## Interactive map
 [Leaflet](https://leafletjs.com) is an open-source JavaScript library for mobile-friendly interactive maps. [React Leaflet](https://react-leaflet.js.org) provides bindings between React and Leaflet. It does not replace Leaflet, but leverages it to abstract Leaflet layers as React components.
