@@ -2,6 +2,7 @@ import Map from "../map/Map";
 import { fetchGame, fetch } from "../../utils/apiFetcher";
 import { useState, useEffect } from "react";
 import GameStatistics from "../game-statistics/GameStatistics";
+import Chat from "../chat/Chat";
 
 const GamePage = (props) => {
   const [game, setGame] = useState({});
@@ -16,15 +17,18 @@ const GamePage = (props) => {
           setKills((kills) => [...kills, kill]);
         });
       });
-    }); 
+    });
     // eslint-disable-next-line
   }, []);
 
   return (
     <>
       <h2>{game.name}</h2>
-      <GameStatistics gameId={gameId}></GameStatistics>
-      <Map game={game} kills={kills}></Map>
+      <div style={{ display: "flex" }}>
+        <Map game={game} kills={kills}></Map>
+        <Chat></Chat>
+        <GameStatistics gameId={gameId}></GameStatistics>
+      </div>
     </>
   );
 };
