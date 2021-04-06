@@ -1,5 +1,6 @@
 .map {
-  height: 90vh;
+  height: 80vh;
+  width: 50%;
 }
 .request-popup .leaflet-popup-content-wrapper {
   border-radius: 0px;

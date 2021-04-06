@@ -28,7 +28,7 @@ const Map = ({ game, kills }) => {
     });
 
     const sendKill = () => {
-      postKill(currentPos[0], currentPos[1], game.id, biteCode, story);
+      postKill(currentPos[0], currentPos[1], game.id, biteCode, story, 6);
       setPopUpOpen(false);
     };
 
@@ -84,7 +84,7 @@ const Map = ({ game, kills }) => {
     <MapContainer
       className="map"
       center={findCenterPoint(mapBounds)}
-      zoom={16}
+      zoom={15}
       scrollWheelZoom={false}
     >
       <TileLayer
@@ -102,7 +102,9 @@ const Map = ({ game, kills }) => {
           >
             <Popup>
               <div style={{ fontSize: 25 }}>
-                <b>Dead player:</b> Hunor
+                <b>Victim:</b> {kill.victim}
+                <br />
+                <b>Killer:</b> {kill.killer}
                 <br />
                 <b>Story:</b> {kill.story}
               </div>

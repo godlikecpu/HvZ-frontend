@@ -1,0 +1,29 @@
+.container {
+  width: 30rem;
+  margin-left: 20px;
+}
+
+.ChatFrame {
+  border: 2px solid black;
+  border-radius: 12px;
+  font-family: "Courier New", Courier, monospace;
+  padding: 3px;
+  max-height: 15rem;
+  min-height: 15rem;
+  overflow-y: scroll;
+}
+
+.Input {
+  display: flex;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.InputField {
+  width: 83%;
+}
+
+.SendButton {
+  width: 13%;
+}

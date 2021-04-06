@@ -33,13 +33,15 @@ const Rules = () => {
                     <strong>Artillery</strong><br />
                     Toy weapons may be used to stun zombies. These weapons can be clothing items such as balled up socks (preferably clean), Nerf-guns or a marshmellow gun.<br />
                     More types of weapons may be used as long as they adhere to these following guidelines:
+                </p>
                     <ol>
                         <li>Absolutely no weapons may resemble a real firearm (Brightly colored weapons only)</li>
                         <li>All projectiles has to be soft meaning that no actual damage will occur on impact</li>
                         <li>All shots on players has to be aimed at the torso (No intentional shots aimed at the head)</li>
                     </ol>
-                    If you are unsure if your weapon is approved for the game then please ask the game master before game start.
-                </p>
+                <p>
+                If you are unsure if your weapon is approved for the game then please ask the game master before game start.
+                </p>    
             </div>
             <div className="margins">
                 <h3>Genral Safety</h3>
@@ -51,18 +53,15 @@ const Rules = () => {
             </div>
             <div className="margins">
                 <h3>Human Rules</h3>
-                <p>
                     <ol>
                         <li>Any human has to wear their bandana around an arm or leg to indicate human status</li>
                         <li>Hitting a zombie is only allowed with approved weapons (see Artillery clause</li>
                         <li>When tagged by a zombie the human is required to show their bite-code</li>
                         <li>When tagged the human immediately becomes a zombie</li>
                     </ol>
-                </p>
             </div>
             <div className="margins">
                 <h3>Zombie Rules</h3>
-                <p>
                     <ol>
                         <li>A zombie must feed at least every 48 hours</li>
                         <li>Tagging a human only counts if it is a firm touch. There may not be any doubt if the human has been tagged</li>
@@ -75,11 +74,9 @@ const Rules = () => {
                         </li>
                         <li>A zombie has to wear the bandana on their head to indicate zombie status</li>
                     </ol>
-                </p>
             </div>
             <div className="margins">
                 <h3>Other Rules</h3>
-                <p>
                     <ul>
                         <li>No shooting non-Players: Hitting an innocent bystander is grounds for disqualification</li>
                         <li>No Non-Player may help players by giving information or delivering food and the like</li>
@@ -87,7 +84,6 @@ const Rules = () => {
                         <li>A human can stun a zombie (outside safe-zone) while being in a safe-zone</li>
                         <li>A zombie is not allowed to use anything to shield them from a projectile</li>
                     </ul>
-                </p>
             </div>
             <div className="margins">
                 <h3>Gentleman Clause</h3>
