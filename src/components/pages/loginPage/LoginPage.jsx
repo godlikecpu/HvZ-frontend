@@ -45,7 +45,7 @@ export default function Login() {
                     console.log(loggedIn)
                     console.log(parseJwt(result.access_token).realm_access.roles)
                     // redirect to 'landing page' page
-                    history.push('/games')
+                    history.push('/')
                     window.location.reload()
                 }
                 else if (result.error === "invalid_grant") {
