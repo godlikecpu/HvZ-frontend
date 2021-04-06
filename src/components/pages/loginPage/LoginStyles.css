@@ -1,0 +1,47 @@
+.centering {
+    text-align: center;
+}
+
+.log-form {
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.gridding {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: .5rem;
+    text-align: left;
+}
+
+.log-center-btn {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.log-submit {
+    height: 3rem;
+    width: 10rem;
+    border-radius: 10rem;
+    background-color: rgba(2, 2, 2, 0.658);
+    color: red;
+    -webkit-text-stroke: 1px red;
+}
+
+.log-submit:focus {
+    outline: none;
+}
+
+.log-submit:hover {
+    cursor: pointer;
+}
+
+.log-form input::placeholder {
+    opacity: 0.3;
+    text-align: center;
+}
+
+.log-warning {
+    color: red;
+    -webkit-text-stroke: 1px red;
+}

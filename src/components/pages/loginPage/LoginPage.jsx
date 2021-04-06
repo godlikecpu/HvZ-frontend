@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import "./LoginStyles.css";
+
 export default function Login() {
 
     const [username, setUserName] = useState("");
@@ -67,29 +69,35 @@ export default function Login() {
     }
 
     return (
-        <form>
+        <div className="centering">
             <h3>Log In</h3>
 
-            <div className="form-group">
-                <label>Username</label>
-                <input type="text" className="form-control" placeholder="Enter username" onChange={e => setUserName(e.target.value)} />
+            <form className="log-form">
+
+                <div className="gridding">
+                    <label >Username:</label>
+                    <input type="text" placeholder="Enter username" onChange={e => setUserName(e.target.value)} />
+                </div>
+
+                <div className="gridding">
+                    <label>Password:</label>
+                    <input type="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
+                </div>
+
+                <div className="log-center-btn">
+                    <button className="log-submit" type="button" onClick={loginAttempt} >Log in</button>
+                </div>
+
+            </form>
+
+
+            <div className="centering">
+                {error === "Server" && <p className="log-warning">Server Side Error...</p>}
+                {error === "invalid_grant" && <p className="log-warning">Invalid Credentials!</p>}
             </div>
 
-            <div className="form-group">
-                <label>Password</label>
-                <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
-            </div>
-
-            <div className="form-group">
-                {error === "Server" && <p>Server Side Error 😪</p>}
-                {error === "invalid_grant" && <p>Invalid Credentials 😅</p>}
-            </div>
-
-            <button type="button" onClick={loginAttempt} >Log in</button>
-            <p className="forgot-password text-right">
-                Need to regsiter? <a href="/register"> click here</a>
-            </p>
-        </form>
+            <p>Need to regsiter? <a href="/register"> click here</a></p>
+        </div>
     );
 
 }
