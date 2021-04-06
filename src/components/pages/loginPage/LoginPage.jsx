@@ -43,7 +43,7 @@ export default function Login() {
                     console.log(result)
                     setLoggedIn(true)
                     console.log(loggedIn)
-                    console.log(parseJwt(result.access_token).realm_access.roles)
+                    localStorage.setItem("role", window.btoa(parseJwt(result.access_token).realm_access.roles))
                     // redirect to 'landing page' page
                     history.push('/')
                     window.location.reload()
