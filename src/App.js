@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
 
   function requireAuth(destination) {
-    if (localStorage.getItem("username") === null) {
+    if (localStorage.getItem("token") === null) {
       return <LoginPage />
     } else {
       return destination
