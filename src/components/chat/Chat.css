@@ -1,11 +1,15 @@
 .container {
   width: 30rem;
-  margin-left: 20px;
+  border: 2px solid black;
+  border-radius: .5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ChatFrame {
-  border: 2px solid black;
-  border-radius: 12px;
+  background-color: #e8e8e8;
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
   font-family: "Courier New", Courier, monospace;
   padding: 3px;
   max-height: 15rem;
@@ -15,7 +19,8 @@
 
 .Input {
   display: flex;
-  padding: 2px;
+  padding: .5rem;
+  border-top: 2px solid black;
   align-items: center;
   justify-content: center;
 }
@@ -30,4 +35,9 @@
 
 .SendButton {
   width: 13%;
+  margin-left: 1rem;
+}
+
+.centering {
+  text-align: center;
 }

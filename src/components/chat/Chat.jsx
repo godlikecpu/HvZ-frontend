@@ -50,23 +50,25 @@ const Chat = () => {
   ));
 
   return (
-    <div className="container">
-      GAME CHAT
-      <div id="chatArea"
-        className="ChatFrame">
-        {listMessages}
-        <div ref={messagesEndRef} />
-      </div>
-      <div className="Input">
-        <input id="inputField"
-          onChange={handleChange}
-          type="text"
-          className="InputField"
-          placeholder="Your message here"
-        ></input>
-        <button onClick={sendChat} className="SendButton">
-          Send
+    <div>
+      <h3 className="centering">GAME CHAT</h3>
+      <div className="container">
+        <div id="chatArea"
+          className="ChatFrame">
+          {listMessages}
+          <div ref={messagesEndRef} />
+        </div>
+        <div className="Input">
+          <input id="inputField"
+            onChange={handleChange}
+            type="text"
+            className="InputField"
+            placeholder="Your message here"
+          ></input>
+          <button onClick={sendChat} className="SendButton">
+            Send
         </button>
+        </div>
       </div>
     </div>
   );
