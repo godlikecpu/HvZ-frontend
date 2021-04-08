@@ -1,49 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import config from "../../config.json";
+import React from "react";
 import "./GameStatisticsStyle.css";
-
 import PlayerStatistic from "../game-statistics/PlayerStatistic/PlayerStatistic";
 
-const GameStatistics = (props) => {
-    const [isLoading, setLoading] = useState(true);
-    const gameId = props.gameId;
-    const [stats, setStats] = useState();
-
-    useEffect(() => {
-        async function fetchStatistics() {
-            await fetch(config.API_URL + "/api/v1/game/" + gameId)
-                .then((response) => response.json())
-                .then((data) => setStats(data))
-            setLoading(false);
-        }
-        fetchStatistics();
-    });
-
-    if (isLoading) {
-        return (
-            <>
-                <div>Loading...</div>
-            </>
-        );
-    }
-
-    return (
-        <>
-            <div className="row">
-                <div className="column">
-                    <h3>Game state: {stats.gameState}</h3>
-                    <h3>North-West: {stats.northWestLatitude} °, {stats.northWestLongitude}° </h3>
-                    <h3>South-East: {stats.southEastLatitude} °, {stats.southEastLongitude}° </h3>
-                </div>
-                {(window.atob(localStorage.getItem("role")) === "game-master") &&
-                    <div className="column">
-                        <PlayerStatistic gameId={gameId} />
-                    </div>
-                }
-            </div>
-        </>
-    );
+const GameStatistics = ({ game }) => {
+  return (
+    <>
+      <div className="row">
+        <div className="column">
+          <h3>Game state: {game.gameState}</h3>
+          <h3>Amount of players: {game.players.length}</h3>
+          <h3>Amount of kills: {game.kills.length}</h3>
+          <h3>
+            North-West: {game.northWestLatitude} °, {game.northWestLongitude}°{" "}
+          </h3>
+          <h3>
+            South-East: {game.southEastLatitude} °, {game.southEastLongitude}°{" "}
+          </h3>
+        </div>
+        {window.atob(localStorage.getItem("role")) === "game-master" && (
+          <div className="column">
+            <PlayerStatistic game={game} />
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
-
 
 export default GameStatistics;

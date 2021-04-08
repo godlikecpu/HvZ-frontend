@@ -1,4 +1,4 @@
-import GamePage from "./components/pages/GamePage.jsx";
+import GamePage from "./components/pages/gamePage/GamePage.jsx";
 import NavigationBar from "./components/shared/navbar/NavigationBar.jsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/pages/landingPage/LandingPage.jsx";
@@ -10,12 +10,11 @@ import RegisterNewUser from "./components/pages/regersterNewUser/registerNewUser
 import "./App.css";
 
 function App() {
-
   function requireAuth(destination) {
     if (localStorage.getItem("token") === null) {
-      return <LoginPage />
+      return <LoginPage />;
     } else {
-      return destination
+      return destination;
     }
   }
 

@@ -30,7 +30,7 @@ const Chat = () => {
     } else {
       evt.preventDefault();
       socket.emit("message", currentMessage);
-      document.getElementById("inputField").value = ""
+      document.getElementById("inputField").value = "";
     }
   };
 
@@ -53,13 +53,13 @@ const Chat = () => {
     <div>
       <h3 className="centering">GAME CHAT</h3>
       <div className="container">
-        <div id="chatArea"
-          className="ChatFrame">
+        <div id="chatArea" className="ChatFrame">
           {listMessages}
           <div ref={messagesEndRef} />
         </div>
         <div className="Input">
-          <input id="inputField"
+          <input
+            id="inputField"
             onChange={handleChange}
             type="text"
             className="InputField"
@@ -67,7 +67,7 @@ const Chat = () => {
           ></input>
           <button onClick={sendChat} className="SendButton">
             Send
-        </button>
+          </button>
         </div>
       </div>
     </div>

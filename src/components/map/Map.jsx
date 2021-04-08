@@ -11,7 +11,7 @@ import {
 import { postKill } from "../../utils/apiFetcher";
 import "./map.css";
 
-const Map = ({ game, kills }) => {
+const Map = ({ game, kills, setKills }) => {
   const mapBounds = [
     [game.northWestLatitude, game.northWestLongitude],
     [game.southEastLatitude, game.southEastLongitude],
@@ -27,8 +27,21 @@ const Map = ({ game, kills }) => {
       },
     });
 
-    const sendKill = () => {
+    const createKill = () => {
       postKill(currentPos[0], currentPos[1], game.id, biteCode, story, 6);
+      setKills((kills) => [
+        ...kills,
+        {
+          id: Math.floor(Math.random() * 1000),
+          timeOfDeath: new Date().toISOString(),
+          story,
+          latitude: currentPos[0],
+          longitude: currentPos[1],
+          biteCode,
+          killer: "Dan",
+          victim: "Hunor",
+        },
+      ]);
       setPopUpOpen(false);
     };
 
@@ -59,7 +72,7 @@ const Map = ({ game, kills }) => {
             <label>Latitude: {currentPos[0]}</label>
             <br />
             <label>Longitude: {currentPos[1]}</label>
-            <button style={{ fontSize: 20 }} onClick={sendKill}>
+            <button style={{ fontSize: 20 }} onClick={createKill}>
               Confirm
             </button>
           </div>
@@ -80,6 +93,7 @@ const Map = ({ game, kills }) => {
     averageLong = totalLong / points.length;
     return [averageLat, averageLong];
   };
+
   return Object.keys(game).length !== 0 ? (
     <MapContainer
       className="map"

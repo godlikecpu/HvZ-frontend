@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import config from "../../../config.json";
 import "./PlayerStatisticStyle.css";
 
-const PlayerStatistic = (props) => {
+const PlayerStatistic = ({ game }) => {
   const [isLoading, setLoading] = useState(true);
-  const gameId = props.gameId;
   const [datas, setData] = useState([]);
 
   useEffect(() => {
     async function fetchPlayer() {
-      await fetch(config.API_URL + "/api/v1/game/" + gameId + "/player")
+      await fetch(config.API_URL + "/api/v1/game/" + game.id + "/player")
         .then((response) => response.json())
         .then((datas) => setData(datas));
       setLoading(false);

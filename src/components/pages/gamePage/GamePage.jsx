@@ -1,9 +1,8 @@
-import Map from "../map/Map";
-import { fetchGame, fetch } from "../../utils/apiFetcher";
+import Map from "../../map/Map";
+import { fetchGame, fetch } from "../../../utils/apiFetcher";
 import { useState, useEffect } from "react";
-import GameStatistics from "../game-statistics/GameStatistics";
-import Chat from "../chat/Chat";
-
+import GameStatistics from "../../game-statistics/GameStatistics";
+import Chat from "../../chat/Chat";
 import "./GamePageStyles.css";
 
 const GamePage = (props) => {
@@ -23,17 +22,19 @@ const GamePage = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  return (
+  return Object.keys(game).length !== 0 ? (
     <>
       <h2 className="game-title">{game.name}</h2>
       <div style={{ display: "flex" }}>
-        <Map game={game} kills={kills}></Map>
+        <Map game={game} kills={kills} setKills={setKills}></Map>
         <div>
           <Chat />
-          <GameStatistics gameId={gameId}></GameStatistics>
+          <GameStatistics game={game}></GameStatistics>
         </div>
       </div>
     </>
+  ) : (
+    <h1>Loading</h1>
   );
 };
 
