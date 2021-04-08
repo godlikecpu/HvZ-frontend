@@ -31,7 +31,7 @@ const Games = () => {
 
   return (
     <>
-    <CreateGame />
+      {(window.atob(localStorage.getItem("role")) === "game-master") && <CreateGame />}
       {games &&
         games.map((oneGame, index) => (
           <SingleGame key={index} game={oneGame} />

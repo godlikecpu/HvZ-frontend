@@ -24,6 +24,10 @@
   width: 83%;
 }
 
+.InputField::placeholder {
+  opacity: 0.5;
+}
+
 .SendButton {
   width: 13%;
 }

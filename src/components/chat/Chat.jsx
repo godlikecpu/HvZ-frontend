@@ -8,8 +8,13 @@ const Chat = () => {
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    var chatArea = document.getElementById("chatArea");
+    chatArea.scrollTop = chatArea.scrollHeight;
   };
+
+  //objDiv.scrollTop = objDiv.scrollHeight;
+
+  //scrollIntoView({ behavior: "smooth" })
 
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
@@ -20,8 +25,13 @@ const Chat = () => {
   };
 
   const sendChat = (evt) => {
-    evt.preventDefault();
-    socket.emit("message", currentMessage);
+    if (document.getElementById("inputField").value === "") {
+      //empty input should NOT send message
+    } else {
+      evt.preventDefault();
+      socket.emit("message", currentMessage);
+      document.getElementById("inputField").value = ""
+    }
   };
 
   useEffect(() => {
@@ -42,15 +52,17 @@ const Chat = () => {
   return (
     <div className="container">
       GAME CHAT
-      <div className="ChatFrame">
+      <div id="chatArea"
+        className="ChatFrame">
         {listMessages}
         <div ref={messagesEndRef} />
       </div>
       <div className="Input">
-        <input
+        <input id="inputField"
           onChange={handleChange}
           type="text"
           className="InputField"
+          placeholder="Your message here"
         ></input>
         <button onClick={sendChat} className="SendButton">
           Send
